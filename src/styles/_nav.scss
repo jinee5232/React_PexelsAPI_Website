@@ -1,5 +1,7 @@
 nav {
   background-color: rgb(228, 255, 226);
+  width: 100vw;
+  overflow-x: hidden;
   ul {
     display: flex;
     justify-content: flex-end;
@@ -7,7 +9,26 @@ nav {
     li {
       padding: 0.5rem 1rem;
       a {
-        font-size: 1.25rem;
+        font-size: 2rem;
+        line-height: 5rem;
+        font-weight: bold;
+        transition: all 0.3s linear;
+        &:hover {
+          color: rgb(36, 180, 168);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  ul {
+    margin-right: 1rem;
+    li {
+      padding: 0.5rem 1rem;
+      a {
+        font-size: 1rem;
+        line-height: 3rem;
+        font-weight: bold;
       }
     }
   }

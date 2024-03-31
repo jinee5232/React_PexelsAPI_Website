@@ -1,0 +1,39 @@
+.About_page {
+  min-height: calc(90vh - 6.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80vw;
+  margin: 0 auto;
+
+  h2,
+  p {
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  p {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .About_page {
+    min-height: calc(90vh - 6.25rem);
+    width: 90vw;
+    h2,
+    p {
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+  }
+}

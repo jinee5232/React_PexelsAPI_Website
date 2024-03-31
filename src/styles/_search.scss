@@ -8,9 +8,40 @@
   button {
     font-size: 2rem;
     padding: 0.25rem;
+    box-sizing: border-box;
     border: 3px solid rgb(186, 252, 181);
+    transition: border-color 0.5s;
+
+    &:hover {
+      border-color: #2e86ab;
+    }
   }
   button {
     background-color: rgb(186, 252, 181);
+    transition: all 0.5s;
+    &:hover {
+      border-color: #2e86ab;
+      background-color: #2e86ab;
+      color: #ffffff;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .search {
+    box-sizing: border-box;
+    width: 90vw;
+    margin: 0 auto;
+
+    input,
+    button {
+      font-size: 1.5rem;
+      padding: 0.1rem;
+    }
+    input {
+      width: calc(100vw - 120px);
+    }
+    button {
+      width: 120px;
+    }
   }
 }
