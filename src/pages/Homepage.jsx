@@ -11,6 +11,7 @@ const Homepage = () => {
   let [currentSearch, setCurrentSearch] = useState("");
   const auth = import.meta.env.VITE_PEXELS_AUTH;
   // const auth = "TrtIZ4FMIqRrpUYGRsehx3UF6FoL7Sb4VfohRlQ41TUwEBBwf3WhuFyr";
+  const corsURL = "https://cors-anywhere.herokuapp.com/";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=16";
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=16&page=1`;
   const search = async (url) => {
@@ -25,7 +26,7 @@ const Homepage = () => {
   const morePicture = async () => {
     let newURL;
     //這邊的加1是要加到state
-    setPage(page + 1);
+
     if (input === "") {
       //ˊ這邊的加一是要取得不同圖片的下一筆資料
       newURL = `https://api.pexels.com/v1/curated?page=${page + 1}&per_page=16`;
@@ -34,7 +35,9 @@ const Homepage = () => {
         page + 1
       }`;
     }
-    let result = await axios.get(newURL, {
+    //這邊的加1是要加到state
+    setPage(page + 1);
+    let result = await axios.get(`${corsURL}${newURL}`, {
       headers: {
         Authorization: auth,
         "Access-Control-Allow-Origin": "*",
@@ -58,8 +61,8 @@ const Homepage = () => {
       <div className="pictures">
         {/* data && data.map是指如果有data才執行右列動作 */}
         {data &&
-          data.map((item) => {
-            return <Photo data={item} />;
+          data.map((item, index) => {
+            return <Photo data={item} key={index} />;
           })}
       </div>
       <div className="morePicture">
