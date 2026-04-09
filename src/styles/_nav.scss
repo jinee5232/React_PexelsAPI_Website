@@ -1,35 +1,172 @@
 nav {
-  background-color: rgb(228, 255, 226);
-  width: 100vw;
-  overflow-x: hidden;
-  ul {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--forest-green);
+  padding: var(--sp-2) 0;
+  box-shadow: var(--shadow-md);
+
+  .navContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--sp-4);
     display: flex;
-    justify-content: flex-end;
-    margin-right: 2rem;
-    li {
-      padding: 0.5rem 1rem;
-      a {
-        font-size: 2rem;
-        line-height: 5rem;
-        font-weight: bold;
-        transition: all 0.3s linear;
-        &:hover {
-          color: rgb(36, 180, 168);
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 60px;
+  }
+
+  .navLeft {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    flex: 1;
+
+    .brand {
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .headerSearch {
+      flex: 1;
+      max-width: 450px;
+      animation: fadeInDown 0.3s ease-out;
+    }
+  }
+
+  .navLinks {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    .aboutBtnContainer {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      
+      .aboutBtn {
+        padding: 6px 20px;
+        background-color: var(--about-orange);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover, &.active {
+          background-color: var(--about-hover-green);
+        }
+      }
+
+      .aboutDropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 550px;
+        background-color: #ffffff;
+        border: 2px solid #a7a7a7;
+        border-radius: 40px;
+        padding: var(--sp-8);
+        box-shadow: var(--shadow-xl);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        color: white;
+        text-align: left;
+        margin-top: var(--sp-2);
+
+        &.visible {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .aboutContent {
+          display: flex;
+          flex-direction: column;
+          gap: var(--sp-6);
+
+          .aboutSection {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: var(--sp-4);
+            align-items: flex-start;
+
+            .sectionTitle {
+              font-size: 1.25rem;
+              font-weight: 900;
+              color: var(--gray-900);
+              line-height: 1.2;
+              margin: 0;
+            }
+
+            .sectionBody {
+              color: var(--gray-700);
+              
+              p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin: 0;
+                font-weight: 500;
+              }
+
+              ol {
+                padding: 0;
+                list-style: none;
+                counter-reset: about-counter;
+
+                li {
+                  font-size: 0.95rem;
+                  margin-bottom: var(--sp-1);
+                  font-weight: 500;
+                  display: flex;
+                  gap: var(--sp-2);
+
+                  &::before {
+                    counter-increment: about-counter;
+                    content: counter(about-counter) ".";
+                    font-weight: 700;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 }
-@media screen and (max-width: 450px) {
-  ul {
-    margin-right: 1rem;
-    li {
-      padding: 0.5rem 1rem;
-      a {
-        font-size: 1rem;
-        line-height: 3rem;
-        font-weight: bold;
-      }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    .headerSearch {
+      display: none;
+    }
+    .aboutDropdown {
+      width: 280px;
     }
   }
 }

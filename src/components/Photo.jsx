@@ -4,15 +4,20 @@ const Photo = ({ data }) => {
   return (
     <div className="picture">
       <div className="imageContainer">
-        <img src={data.src.large} alt="" />
-        <div className="Img_btn">
-          <a target="_blank" href={data.src.large}>
+        <img src={data.src.large} alt={data.photographer} />
+        <div className="hoverOverlay">
+          <div className="authorPill">
+            <span>{data.photographer}</span>
+          </div>
+          <a
+            className="downloadPill"
+            target="_blank"
+            href={data.src.original}
+            download
+            rel="noreferrer"
+          >
             下載
           </a>
-        </div>
-        <div className="Img_grapher">
-          {/* <img className="grapher_img" src={data.photographer_url} alt="" /> */}
-          <p>{data.photographer}</p>
         </div>
       </div>
     </div>

@@ -1,39 +1,129 @@
 .About_page {
-  min-height: calc(90vh - 6.25rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--sp-8) var(--sp-4);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 80vw;
-  margin: 0 auto;
+  gap: var(--sp-8);
 
-  h2,
-  p {
-    margin-bottom: 2rem;
+  .aboutHero {
+    text-align: center;
+    padding: var(--sp-6) 0;
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: var(--sp-2);
+      color: var(--gray-900);
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: var(--gray-500);
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
-  h2 {
-    font-size: 3rem;
-    line-height: 4rem;
+
+  .featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+
+    .featureCard {
+      background-color: var(--card-bg);
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      padding: var(--sp-6);
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--sp-3);
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--sp-2);
+        color: var(--gray-800);
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--gray-600);
+      }
+    }
   }
-  p {
-    font-size: 2rem;
-    line-height: 2.5rem;
+
+  .usageSection {
+    text-align: center;
+    padding-top: var(--sp-4);
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: var(--sp-6);
+    }
+
+    .usageSteps {
+      display: flex;
+      justify-content: space-around;
+      gap: var(--sp-4);
+
+      .step {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--sp-2);
+
+        .stepNum {
+          background-color: var(--primary);
+          color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          font-family: "Outfit", sans-serif;
+        }
+
+        p {
+          font-size: 1.125rem;
+          font-weight: 500;
+          color: var(--gray-700);
+        }
+      }
+    }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .About_page {
+    .featuresGrid {
+      grid-template-columns: 1fr;
+    }
+    .usageSteps {
+      flex-direction: column;
+      gap: var(--sp-6);
+    }
+  }
+}
+
 @media screen and (max-width: 450px) {
   .About_page {
-    min-height: calc(90vh - 6.25rem);
-    width: 90vw;
-    h2,
-    p {
-      margin-bottom: 1rem;
-    }
-    h2 {
-      font-size: 2rem;
-      line-height: 3rem;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 2rem;
+    .aboutHero h1 {
+      font-size: 2.5rem;
     }
   }
 }
