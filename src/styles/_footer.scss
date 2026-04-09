@@ -2,7 +2,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.25rem;
-  background-color: rgb(228, 255, 226);
-  min-height: 10vh;
+  padding: var(--sp-8) 0 var(--sp-6);
+  background-color: var(--white);
+  border-top: 1px solid var(--gray-100);
+  margin-top: var(--sp-8);
+
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-3);
+    text-align: center;
+
+    p {
+      color: var(--gray-500);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-1);
+      color: var(--gray-400);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      filter: grayscale(1) opacity(0.5);
+
+      img {
+        height: 12px;
+        width: auto;
+      }
+
+      &:hover {
+        filter: grayscale(0) opacity(1);
+        color: var(--primary);
+      }
+    }
+  }
 }

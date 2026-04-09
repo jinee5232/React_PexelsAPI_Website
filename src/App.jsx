@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Page404 from "./pages/Page404";
-import "./styles/style.css";
+import "./styles/style.scss";
 
 function App() {
   return (
